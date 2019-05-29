@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="hackathon:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/hackathon_war_exploded</output-path>
+  <artifact type="exploded-war" name="hackathon-app:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/hackathon_app_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="hackathon" />
+          <element id="module-output" name="hackathon-app" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.1.4.RELEASE" />
@@ -44,7 +44,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.1.6.RELEASE" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="hackathon/web/Web" />
+      <element id="javaee-facet-resources" facet="hackathon-app/web/Web" />
     </root>
   </artifact>
 </component>
