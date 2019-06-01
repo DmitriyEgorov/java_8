@@ -1,4 +1,4 @@
-package hackathon;
+package hackathon.controller;
 
 import hackathon.model.TestResponse;
 import org.springframework.http.ResponseEntity;

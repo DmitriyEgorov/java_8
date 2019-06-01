@@ -1,7 +1,9 @@
-package hackathon;
+package hackathon.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * boot configuration
@@ -10,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 29.05.2019
  */
 @SpringBootApplication
+@ComponentScan(basePackages = "hackathon")
+@EnableWebMvc
 public class Application {
 
     public static void main(String[] args) {
