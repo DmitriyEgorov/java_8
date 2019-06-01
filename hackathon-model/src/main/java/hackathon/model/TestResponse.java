@@ -1,5 +1,10 @@
 package hackathon.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import hackathon.adapter.LocalDateTimeDeserializer;
+import hackathon.adapter.LocalDateTimeSerializer;
+
 import java.time.LocalDateTime;
 
 /**
@@ -14,6 +19,8 @@ public class TestResponse {
     private String message;
 
     /* dateTime message */
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime dateTimeMessage;
 
     public TestResponse() {

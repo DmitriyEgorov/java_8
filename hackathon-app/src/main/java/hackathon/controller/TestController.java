@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import java.time.LocalDateTime;
 
 
@@ -26,6 +28,7 @@ public class TestController {
     }
 
     @RequestMapping("/ping")
+    @Produces(MediaType.APPLICATION_JSON)
     public ResponseEntity<TestResponse> ping() {
         TestResponse responseBody = new TestResponse();
         responseBody.setMessage(TEST_MESSAGE);

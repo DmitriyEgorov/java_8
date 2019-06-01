@@ -22,6 +22,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <jackson-databind-version>2.9.9</jackson-databind-version>
+        <jersey-json-version>1.19.4</jersey-json-version>
     </properties>
 
 
