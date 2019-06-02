@@ -10,14 +10,22 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
 
-    <artifactId>hackarthon-model</artifactId>
+    <artifactId>hackathon-core</artifactId>
+
 
     <dependencies>
         <!-- external dependencies -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-databind-version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-context-version}</version>
+        </dependency>
+
+        <!-- app dependencies -->
+        <dependency>
+            <groupId>hackathon</groupId>
+            <artifactId>hackarthon-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

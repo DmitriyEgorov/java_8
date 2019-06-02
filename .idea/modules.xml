@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/hackathon.iml" filepath="$PROJECT_DIR$/hackathon.iml" />
       <module fileurl="file://$PROJECT_DIR$/hackathon-app/hackathon-app.iml" filepath="$PROJECT_DIR$/hackathon-app/hackathon-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hackathon-core/hackathon-core.iml" filepath="$PROJECT_DIR$/hackathon-core/hackathon-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/hackathon-model/hackathon-model.iml" filepath="$PROJECT_DIR$/hackathon-model/hackathon-model.iml" />
     </modules>
   </component>

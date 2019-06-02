@@ -14,19 +14,10 @@
 
 
     <dependencies>
+        <!-- external dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>hackathon</groupId>
-            <artifactId>hackarthon-model</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -34,6 +25,24 @@
             <version>${jersey-json-version}</version>
         </dependency>
 
+        <!-- app dependencies -->
+        <dependency>
+            <groupId>hackathon</groupId>
+            <artifactId>hackathon-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>hackathon</groupId>
+            <artifactId>hackarthon-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- test dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
