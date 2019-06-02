@@ -13,12 +13,12 @@ import javax.servlet.ServletRegistration;
  * @author Dmitriy
  * @since 29.05.2019
  */
-public class MyWebAppInitializer implements WebApplicationInitializer {
+public class HackathonWebAppInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext container) {
         AnnotationConfigWebApplicationContext context
                 = new AnnotationConfigWebApplicationContext();
-        context.register(Application.class);
+        context.register(HackathonApplication.class);
 
         container.addListener(new ContextLoaderListener(context));
 

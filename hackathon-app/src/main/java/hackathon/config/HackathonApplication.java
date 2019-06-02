@@ -14,10 +14,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootApplication
 @ComponentScan(basePackages = "hackathon")
 @EnableWebMvc
-public class Application {
+public class HackathonApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(HackathonApplication.class, args);
     }
 
 }
