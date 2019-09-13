@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import hackathon.adapter.LocalDateTimeDeserializer;
 import hackathon.adapter.LocalDateTimeSerializer;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * model for test controller
@@ -21,7 +21,7 @@ public class TestResponse {
     /* dateTime message */
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    private LocalDateTime dateTimeMessage;
+    private Date dateTimeMessage;
 
     public TestResponse() {
     }
@@ -34,11 +34,11 @@ public class TestResponse {
         this.message = message;
     }
 
-    public LocalDateTime getDateTimeMessage() {
+    public Date getDateTimeMessage() {
         return dateTimeMessage;
     }
 
-    public void setDateTimeMessage(LocalDateTime dateTimeMessage) {
+    public void setDateTimeMessage(Date dateTimeMessage) {
         this.dateTimeMessage = dateTimeMessage;
     }
 }

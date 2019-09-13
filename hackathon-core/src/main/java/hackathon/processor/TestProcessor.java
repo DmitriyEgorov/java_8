@@ -3,7 +3,7 @@ package hackathon.processor;
 import hackathon.model.TestResponse;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Test processor
@@ -34,7 +34,7 @@ public class TestProcessor {
     public TestResponse ping() {
         TestResponse responseBody = new TestResponse();
         responseBody.setMessage(TEST_MESSAGE);
-        responseBody.setDateTimeMessage(LocalDateTime.now());
+        responseBody.setDateTimeMessage(new Date());
         return responseBody;
     }
 

@@ -6,21 +6,27 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author Dmitriy
  * @since 01.06.2019
  */
-public class LocalDateTimeDeserializer extends StdDeserializer<LocalDateTime> {
+public class LocalDateTimeDeserializer extends StdDeserializer<Date> {
 
     protected LocalDateTimeDeserializer() {
-        super(LocalDateTime.class);
+        super(Date.class);
     }
 
     @Override
-    public LocalDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-        return LocalDateTime.parse(jsonParser.readValueAs(String.class), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+    public Date deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+        SimpleDateFormat format = new SimpleDateFormat("d MMM uuuu");
+        try {
+            return format.parse(jsonParser.readValueAs(String.class));
+        } catch (ParseException e) {
+            return null;
+        }
     }
 }

@@ -1,0 +1,10 @@
+.idea/libraries
+.idea/deployment.xml
+.idea/uiDesigner.xml
+.idea/workspace.xml
+.idea/artifacts
+.idea/sonar*
+target
+dist
+.idea/dataSources
+.swagger-codegen*
