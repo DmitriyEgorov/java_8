@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 /**
  * test controller for application
@@ -36,9 +37,14 @@ public class TestController {
         return ResponseEntity.ok(testProcessor.ping());
     }
 
+    @RequestMapping("/ping/mock_db")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseEntity<List<TestResponse>> mock_db() {
+        return ResponseEntity.ok(testProcessor.mock_db());
+    }
     @RequestMapping("/ping/mock_db/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseEntity<String> mock_db(@PathVariable("id") Long id) {
+    public ResponseEntity<TestResponse> mock_db(@PathVariable("id") Long id) {
         return ResponseEntity.ok(testProcessor.mock_db(id));
     }
 }

@@ -42,7 +42,7 @@ public class TestControllerIntegrationTest {
         mvc.perform(MockMvcRequestBuilders.get("/")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Dmitriy and Mickhail say hi!")));
+                .andExpect(content().string(equalTo("Alexander, Artem, Dmitriy and Mickhail say hi!")));
     }
 
     @Test
