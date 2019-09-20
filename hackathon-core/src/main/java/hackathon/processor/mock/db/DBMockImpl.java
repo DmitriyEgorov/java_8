@@ -19,8 +19,8 @@ public class DBMockImpl implements DB {
     @Override
     public List<String> findList() {
         List<String> stringList = new ArrayList<>();
-        stringList.add("mock data 1");
-        stringList.add("mock data 2");
+        stringList.add(String.format(MESSAGE, "1"));
+        stringList.add(String.format(MESSAGE, "2"));
         return stringList;
     }
 

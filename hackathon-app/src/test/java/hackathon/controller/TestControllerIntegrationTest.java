@@ -74,4 +74,12 @@ public class TestControllerIntegrationTest {
 
     }
 
+    @Test
+    public void testPingMockDbById_incorrectId() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/ping/mock_db/{id}", "string")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
+
+    }
+
 }
