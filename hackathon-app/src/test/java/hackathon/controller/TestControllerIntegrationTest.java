@@ -14,8 +14,12 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import javax.validation.constraints.AssertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.stringContainsInOrder;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -51,6 +55,27 @@ public class TestControllerIntegrationTest {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("test success")));
+
+    }
+
+    @Test
+    public void testPingMockDb() throws Exception {
+        List<String> stringList = new ArrayList<>();
+        stringList.add("mock data 1");
+        stringList.add("mock data 2");
+        mvc.perform(MockMvcRequestBuilders.get("/ping/mock_db")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(stringContainsInOrder(stringList)));
+
+    }
+
+    @Test
+    public void testPingMockDbById() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/ping/mock_db/{id}", "56")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("mock data 56")));
 
     }
 
