@@ -10,22 +10,23 @@ import java.util.logging.Logger;
 import static java.util.logging.Logger.getLogger;
 
 /**
- * Test job
+ * New Test job
  *
  * @author Dmitriy
  * @since 20.09.2019
  */
 @Component
-public class TestJob implements Job {
-    private static final Logger LOGGER = getLogger(TestJob.class.getName());
+public class NewTestJob implements Job {
+    private static final Logger LOGGER = getLogger(NewTestJob.class.getName());
+    private static final String MESSAGE = "New Job %s";
     private final TestJobService testJobService;
 
-    public TestJob() {
+    public NewTestJob() {
         this.testJobService = new TestJobService();
     }
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        LOGGER.info(testJobService.getMessage());
+        LOGGER.info(String.format(MESSAGE, testJobService.getMessage()));
     }
 }

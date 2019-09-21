@@ -1,5 +1,6 @@
 package hackathon.config;
 
+import hackathon.processor.mock.NewTestJob;
 import hackathon.processor.mock.TestJob;
 import org.quartz.JobDetail;
 import org.quartz.SimpleTrigger;
@@ -29,11 +30,11 @@ public class HackathonSchedulerConfig {
 
 	@Bean
 	public SchedulerFactoryBean schedulerFactoryBean(JobFactory jobFactory,
-			Trigger testJobTrigger) throws IOException {
+			Trigger testJobTrigger, Trigger newTestJobTrigger) throws IOException {
 		SchedulerFactoryBean factory = new SchedulerFactoryBean();
 		factory.setJobFactory(jobFactory);
 		factory.setQuartzProperties(quartzProperties());
-		factory.setTriggers(testJobTrigger);
+		factory.setTriggers(testJobTrigger, newTestJobTrigger);
 		return factory;
 	}
 
@@ -49,6 +50,17 @@ public class HackathonSchedulerConfig {
 	}
 
 	@Bean
+	public SimpleTriggerFactoryBean newTestJobTrigger(
+			@Qualifier("newTestJobDetail") JobDetail jobDetail){
+		SimpleTriggerFactoryBean factoryBean = new SimpleTriggerFactoryBean();
+		factoryBean.setJobDetail(jobDetail);
+		factoryBean.setStartDelay(0L);
+		factoryBean.setRepeatInterval(15000L);
+		factoryBean.setRepeatCount(SimpleTrigger.REPEAT_INDEFINITELY);
+		return factoryBean;
+	}
+
+	@Bean
 	public Properties quartzProperties() throws IOException {
 		PropertiesFactoryBean propertiesFactoryBean = new PropertiesFactoryBean();
 		propertiesFactoryBean.afterPropertiesSet();
@@ -59,6 +71,14 @@ public class HackathonSchedulerConfig {
 	public JobDetailFactoryBean testJobDetail() {
 		JobDetailFactoryBean factoryBean = new JobDetailFactoryBean();
 		factoryBean.setJobClass(TestJob.class);
+		factoryBean.setDurability(true);
+		return factoryBean;
+	}
+
+	@Bean
+	public JobDetailFactoryBean newTestJobDetail() {
+		JobDetailFactoryBean factoryBean = new JobDetailFactoryBean();
+		factoryBean.setJobClass(NewTestJob.class);
 		factoryBean.setDurability(true);
 		return factoryBean;
 	}
