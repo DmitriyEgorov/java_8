@@ -12,10 +12,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="hackathon" target="1.7" />
-      <module name="hackathon-app" target="1.7" />
-      <module name="hackathon-core" target="1.7" />
-      <module name="hackathon-model" target="1.7" />
+      <module name="hackathon" target="1.8" />
+      <module name="hackathon-app" target="1.8" />
+      <module name="hackathon-core" target="1.8" />
+      <module name="hackathon-model" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
