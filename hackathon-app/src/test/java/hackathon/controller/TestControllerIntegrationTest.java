@@ -18,6 +18,7 @@ import java.util.List;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.stringContainsInOrder;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -49,7 +50,7 @@ public class TestControllerIntegrationTest {
         mvc.perform(MockMvcRequestBuilders.get("/test/ping")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("test success")));
+                .andExpect(mvcResult -> assertTrue(mvcResult.getResponse().getContentAsString().contains("test success")));
 
     }
 
