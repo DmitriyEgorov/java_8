@@ -18,6 +18,7 @@ import java.util.List;
  * @since 28.05.2019
  */
 @RestController
+@RequestMapping("/test")
 public class TestController {
 
     private final TestProcessor testProcessor;
@@ -26,7 +27,7 @@ public class TestController {
         this.testProcessor = testProcessor;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("")
     public String sayHi() {
         return testProcessor.getHiMessage();
     }
