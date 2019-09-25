@@ -38,15 +38,15 @@ public class TestControllerIntegrationTest {
 
     @Test
     public void testHi() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/")
+        mvc.perform(MockMvcRequestBuilders.get("/test")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Alexander, Artem, Dmitriy and Mickhail say hi!")));
+                .andExpect(content().string(equalTo("Polina, Dmitriy, Iilya, Mickhail and Oleg say hi!")));
     }
 
     @Test
     public void testPing() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/ping")
+        mvc.perform(MockMvcRequestBuilders.get("/test/ping")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("test success")));
@@ -58,7 +58,7 @@ public class TestControllerIntegrationTest {
         List<String> stringList = new ArrayList<>();
         stringList.add("mock data 1");
         stringList.add("mock data 2");
-        mvc.perform(MockMvcRequestBuilders.get("/ping/mock_db")
+        mvc.perform(MockMvcRequestBuilders.get("/test/ping/mock_db")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(stringContainsInOrder(stringList)));
@@ -67,7 +67,7 @@ public class TestControllerIntegrationTest {
 
     @Test
     public void testPingMockDbById() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/ping/mock_db/{id}", "56")
+        mvc.perform(MockMvcRequestBuilders.get("/test/ping/mock_db/{id}", "56")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("mock data 56")));
@@ -76,7 +76,7 @@ public class TestControllerIntegrationTest {
 
     @Test
     public void testPingMockDbById_incorrectId() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/ping/mock_db/{id}", "string")
+        mvc.perform(MockMvcRequestBuilders.get("/test/ping/mock_db/{id}", "string")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest());
 
