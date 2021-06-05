@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class TestProcessor {
 
-    private static final String HI_MESSAGE = "Polina, Dmitriy, Iilya, Mickhail and Oleg say hi!";
+    private static final String HI_MESSAGE = "We are team of dream!";
     private static final String TEST_MESSAGE = "test success";
     private final DB db;
 
